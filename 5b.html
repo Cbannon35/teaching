@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>React Native and Expo</h2>
+          <p>Section 5B</p>
+          <br />
+          <br />
+          <p style="font-size: 20px">
+            CS 160 · User Interface Design and Development · Summer 2023
+          </p>
+          <p style="font-size: 16px">
+            <a href="./index.html">Back to index</a>
+          </p>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>React Native</li>
+            <li>React Native Docs</li>
+            <li>Expo</li>
+            <li>Expo Docs</li>
+            <li>Make an app</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Attendance</h2>
+          <img style="height: 300px" src="./qrs/5b-react-native-400.png" />
+          <p>
+            <a href="https://tinyurl.com/5b-react-native"
+              >https://tinyurl.com/5b-react-native</a
+            >
+          </p>
+          <p>Strawberry Cheesecake</p>
+        </section>
+
+        <section>
+          <h2>What is React Native?</h2>
+          <ul>
+            <li>Developed by facebook</li>
+            <li>
+              Allows you to build native mobile apps using React and Javascript
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Benefits? Many!</h2>
+          <ul>
+            <li>Cross Platform Apps</li>
+            <li>Native performance: Renders native UI elements</li>
+            <li>Community Support</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Isn't it just React?</h2>
+          <p>
+            Well yes.. but No!! When using React Native, you should use mobile
+            platform specific components from the React Native library.
+            Additionally, there are APIs that allow you to interact with the
+            device hardware (camera, mic, etc).
+          </p>
+        </section>
+
+        <section>
+          <h2>Documentation</h2>
+          <p>
+            To be a good engineer we should get good at reading documentation
+          </p>
+          <br />
+          <p>
+            <a
+              href="https://reactnative.dev/docs/getting-started"
+              target="_blank"
+              >React Native</a
+            >
+          </p>
+          <br />
+          <ul>
+            <li>How do I make screens?</li>
+            <li>How do I move between screens?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>App Development</h2>
+          <p>Cant we just use React Native to develop our app?</p>
+          <p>Yes, but... we saw:</p>
+          <ul>
+            <li>
+              React Native docs were using Expo to power their interactive
+              examples
+            </li>
+            <li>small section dedicated to running/testing apps</li>
+          </ul>
+          <p>
+            Since live updates are great and help out development and testing,
+            lets go check out expo!
+          </p>
+        </section>
+
+        <section>
+          <h2>Expo Docs</h2>
+          <p>
+            <a
+              href="https://docs.expo.dev/"
+              target="_blank
+            "
+              >Expo</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h2>Activity Overview</h2>
+          <p>Animal blog:</p>
+          <p style="font-size: 20px">
+            Share your favorite animal using React Native and Expo
+          </p>
+          <img
+            src="http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg"
+            alt="cat"
+            style="height: 300px"
+          />
+          <aside class="notes">Sort of on brand for the community theme</aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>TODO</h2>
+            <ul>
+              <li>
+                Fix Menu Bar w/ State (we'll look at other nav tools later)
+              </li>
+              <li>
+                Create an example user page with some props (more props
+                practice!)
+              </li>
+              <li>
+                Create a blog about your favorite animal! Make sure to style
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Fix Menu Bar</h2>
+            <ul>
+              <li>Should be able to swap between the two screens</li>
+              <li>
+                The tab item in the menu bar should reflect screen you are on
+                (colored, bolded, etc)
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>User Screen</h2>
+            <ul>
+              <li>Should display your name</li>
+              <li>Maybe a profile pic?</li>
+              <li>Dont worry about this too much and focus on the blog!</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Blog Screen</h2>
+            <ul>
+              <li>
+                Create a blog post component that takes in a title, image, and
+                text
+              </li>
+              <li>The blog screen should display a few blog posts!</li>
+              <li>
+                Bonus points if you make it scrollable! (hint: lookup
+                ScrollView)
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Work with the following Snacks:</h2>
+          <ul>
+            <li>
+              <a
+                href="https://snack.expo.dev/@cbannon35/smelly-milkshake"
+                target="_blank"
+                >Example</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://snack.expo.dev/@cbannon35/thoughtful-stroopwafels"
+                target="_blank"
+                >Animal Blog</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Key Takeaways:</h2>
+          <ul>
+            <li>Mobile Development = Screens</li>
+            <li>React Native = Native Components, no more html!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>More on Screens</h2>
+          <ul>
+            <li>
+              Think of a stack:
+              <ul>
+                <li>Each screen is a layer on the stack</li>
+                <li>
+                  When you navigate to a new screen, it is added to the stack
+                </li>
+                <li>
+                  When you go back, the top screen is removed from the stack
+                </li>
+              </ul>
+            </li>
+            <li>
+              Check out NavigationContainer, reateNativeStackNavigator,
+              createBottomTabNavigator
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Attendance</h2>
+          <img style="height: 300px" src="./qrs/5b-react-native-400.png" />
+          <p>
+            <a href="https://tinyurl.com/5b-react-native"
+              >https://tinyurl.com/5b-react-native</a
+            >
+          </p>
+          <p>Strawberry Cheesecake</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
