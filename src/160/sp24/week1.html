@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="author" content="Christopher Bannon" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>CS 160 SP24 Week 1: HTML & CSS</title>
+
+    <link rel="stylesheet" href="../../../dist/reset.css" />
+    <link rel="stylesheet" href="../../../dist/reveal.css" />
+    <link rel="stylesheet" href="../../../dist/theme/black.css" />
+    <link rel="stylesheet" href="../../../plugin/highlight/monokai.css" />
+    <style>
+      .reveal .footer {
+        position: absolute;
+        bottom: 0.5em;
+        left: 0.5em;
+        font-size: 0.5em;
+        z-index: 1000;
+      }
+      .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="footer">
+        <small
+          >Access Slides:
+          <a href="https://cbannon35.github.io/teaching/"
+            >https://cbannon35.github.io/teaching/</a
+          ></small
+        >
+      </div>
+      <div class="slides">
+        <section>
+          <h2>Welcome to Discussion #1!</h2>
+          <small>
+            CS 160 · User Interface Design and Development · Spring 2024
+          </small>
+          <br />
+          <br />
+          <br />
+          <p>
+            <strong>Do Now: </strong>Create a Figma account
+            <a href="https://www.figma.com/education/" target="_blank">here</a>
+          </p>
+          <p>(Use berkeley email)</p>
+          <br />
+          <p style="font-size: 16px">
+            <a href="../../../index.html">Back to index</a>
+          </p>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Get to know eachother</li>
+            <li>Learn HTML</li>
+            <li>Learn CSS</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Introductions</h2>
+          <p>
+            <a
+              href="https://www.figma.com/file/lUOl2ZmGM5jOCOqLCSaMot/Ice-Breakers-(Copy)?type=design&node-id=24%3A12&mode=design&t=MFctstdNnqPCKFbE-1"
+              target="_blank"
+              >Figma &#8599;</a
+            >
+          </p>
+          <img
+            src="../../assets/small_square.jpg"
+            alt="Chris"
+            style="width: 200px"
+            class="r-stretch"
+          />
+        </section>
+        <section><h1>Before we begin...</h1></section>
+        <section>
+          <h2>High Level Strategies</h2>
+          <br />
+          <p>
+            Don’t start completely from scratch if you don’t have to. Use the
+            starter code/templates, inspect the code of websites you like, etc.
+          </p>
+          <br />
+          <p>
+            Good news: You can (and should) Google/chatGPT as needed. But
+            remember,<strong> always cite your sources!</strong>
+          </p>
+        </section>
+        <section>
+          <h1>HTML</h1>
+          <h3>Hyper Text Markup Language</h3>
+        </section>
+        <section data-auto-animate>
+          <p id="lineDescription">Example HTML</p>
+          <pre
+            data-id="code"
+          ><code data-line-numbers="*|1|2,11|3,5|6,10|4|7|8|9" class="hljs" data-trim>
+            <script type="text/template">
+                <!DOCTYPE html>
+                <html>
+                <head>
+                  <title>Page Title</title>
+                </head>
+                  <body>
+                    <!-- Visible Content -->
+                    <p>My first paragraph.</p>
+                    <p>And another!</p>
+                  </body>
+                </html>
+            </script>		
+			</code></pre>
+        </section>
+        <section>
+          <h2>DOM</h2>
+          <h4>Document Object Model</h4>
+          <img
+            src="../../assets/sp24week1/html_dom.png"
+            alt="dom"
+            style="height: 400px"
+          />
+        </section>
+        <section>
+          <h3>Activity Time: Group Website</h3>
+          <small>
+            Work with the people around you to recreate your figma cards - If
+            your team is confident, go ahead and recreate your shared board!
+          </small>
+          <br />
+          <br />
+          <ul>
+            <li>
+              Go to
+              <a href="https://codepen.io/" target="_blank">CodePen</a> and
+              click on "Start Coding"
+              <ul>
+                <li>Or, open up VSCode or any editor, create .html file</li>
+              </ul>
+            </li>
+            <li>
+              Place all the content on the page, we'll look at how to style it
+              later
+              <ul>
+                <li>How do you place images?</li>
+                <li>Is there an element that makes font bigger?</li>
+                <li>
+                  <strong>Bonus:</strong> start thinking about page hierarchy...
+                  what is a <strong>container?</strong>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Recap</h2>
+          <ul>
+            <li>
+              Write HTML and display
+              <ul>
+                <li>CodePen</li>
+                <li>VSCode</li>
+              </ul>
+            </li>
+            <li>HTML tags: &lt;div&gt;</li>
+            <li>Inspect Element</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>CSS</h1>
+          <h3>Cascading Style Sheets</h3>
+        </section>
+        <section>
+          <h2>4 Ways to Add CSS to HTML</h2>
+          <ul>
+            <li>
+              Inserting a style tag (in &lt;head&gt;):
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim>
+            <script type="text/template">
+                <style type="text/css">
+                    p { color: blue }
+                </style>
+            </script>		
+			</code></pre>
+            </li>
+            <li>
+              Reference external style sheet:
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim>
+            <script type="text/template">
+                <link href="style.css" rel="stylesheet" type="text/css" />
+            </script>		
+			</code></pre>
+            </li>
+            <li>
+              Using the attribute style on a tag:
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim>
+            <script type="text/template">
+                <p style="color: blue; margin: 10px">
+            </script>		
+			</code></pre>
+            </li>
+            <li>Javascript (we'll look at this later)</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Inspect Element</h2>
+          <small>
+            We'll look at this more in depth when we work with javascript, but
+            for now, you should know how to access developer tools
+          </small>
+          <br />
+          <br />
+          <ul>
+            <li>HTML DOM</li>
+            <li>Computed Styles</li>
+            <li>Select tool</li>
+            <li>Device tooling</li>
+            <li>Console</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Activity Time: Demo</h3>
+          <small>
+            Sections of the CSS has been commented out using /* */. Uncomment or
+            change sections to experiment with what occurs!
+          </small>
+          <br />
+          <br />
+          <div class="columns">
+            <div>
+              <img
+                src="../../assets/sp24week1/css_activity1.png"
+                alt="css demo"
+                style="height: 200px"
+              />
+              <a href="http://tiny.cc/css-160" target="_blank"
+                >http://tiny.cc/css-160</a
+              >
+            </div>
+            <div>
+              <img
+                src="../../assets/sp24week1/css_activity2.png"
+                alt="css demo"
+                style="height: 200px"
+              />
+              <a href="http://tiny.cc/160buttons" target="_blank"
+                >http://tiny.cc/160buttons</a
+              >
+            </div>
+          </div>
+          <br />
+          <small
+            >Then, return to the .html file you made, style it, and post it to
+            the figma!</small
+          >
+        </section>
+        <section>
+          <h2>Recap</h2>
+          <ul>
+            <li>
+              4 ways to add css
+              <ul>
+                <li>Style tag</li>
+                <li>External style sheet</li>
+                <li>Attribute style</li>
+                <li>Javascript</li>
+              </ul>
+            </li>
+            <li>CSS properties</li>
+            <li>Inspect element</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Thank you!</h2>
+          <br />
+          <p>Other resources:</p>
+          <ul>
+            <li>
+              Tim!
+              <a href="https://160.tja.io/sp2024/week1/" target="_blank"
+                >https://160.tja.io/sp2024/week1/</a
+              >
+            </li>
+            <li>
+              Documentation:
+              <ul>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+                    target="_blank"
+                    >Mozilla </a
+                  >(<a
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                    target="_blank"
+                    >https://developer.mozilla.org/en-US/docs/Web/HTML</a
+                  >)
+                </li>
+                <li>
+                  <a href="https://www.w3schools.com/html/" target="_blank"
+                    >W3 </a
+                  >(<a href="https://www.w3schools.com/html/" target="_blank"
+                    >https://www.w3schools.com/html/</a
+                  >)
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../../../dist/reveal.js"></script>
+    <script src="../../../plugin/notes/notes.js"></script>
+    <script src="../../../plugin/markdown/markdown.js"></script>
+    <script src="../../../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
