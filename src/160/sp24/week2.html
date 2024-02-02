@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="author" content="Christopher Bannon" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>CS 160 SP24 Week 1: HTML & CSS</title>
+
+    <link rel="stylesheet" href="../../../dist/reset.css" />
+    <link rel="stylesheet" href="../../../dist/reveal.css" />
+    <link rel="stylesheet" href="../../../dist/theme/black.css" />
+    <link rel="stylesheet" href="../../../plugin/highlight/monokai.css" />
+    <style>
+      .reveal .footer {
+        position: absolute;
+        bottom: 0.5em;
+        left: 0.5em;
+        font-size: 0.5em;
+        z-index: 1000;
+      }
+      .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="footer">
+        <small
+          >Access Slides:
+          <a href="https://cbannon35.github.io/teaching/"
+            >https://cbannon35.github.io/teaching/</a
+          ></small
+        >
+      </div>
+      <div class="slides">
+        <section>
+          <h2>Welcome to Discussion #2!</h2>
+          <small>
+            CS 160 · User Interface Design and Development · Spring 2024
+          </small>
+          <br />
+          <br />
+          <br />
+          <p><strong>Do Now: </strong>Get into your teams! Should be ~7</p>
+          <br />
+          <p style="font-size: 16px">
+            <a href="../../../index.html">Back to index</a>
+          </p>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Get to know eachother pt2</li>
+            <li>Learn Javascript</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Brief Into to Javascript</h2>
+
+          <ul>
+            <li>Dynamically typed + object oriented</li>
+            <li>
+              Make websites interactive:
+              <ul>
+                <li>Manipulate the DOM</li>
+                <li>Listen to events, (keyboard, mouse, etc)</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Icebreaker</h2>
+          <p>Learning Javascript:</p>
+          <small>
+              <a
+                href="https://codepen.io/Timothy-James-Aveni/pen/ExMovgE?editors=1010"
+                target="_blank"
+                >https://codepen.io/Timothy-James-Aveni/pen/ExMovgE?editors=1010</a
+              >
+          </small>
+            <small>
+              <a
+                href="https://codepen.io/Timothy-James-Aveni/pen/XWGVaNV"
+                target="_blank"
+                >https://codepen.io/Timothy-James-Aveni/pen/XWGVaNV</a
+              >
+            </small>
+            <small>
+              <a
+                href="https://codepen.io/Timothy-James-Aveni/pen/yLwpooo"
+                target="_blank"
+                >https://codepen.io/Timothy-James-Aveni/pen/yLwpooo</a
+              >
+            </small>
+            <small>
+              <a
+                href="https://codepen.io/Timothy-James-Aveni/pen/JjzpjPX"
+                target="_blank"
+                >https://codepen.io/Timothy-James-Aveni/pen/JjzpjPX</a
+              >
+            </small>
+            <small>
+              <a
+                href="https://codepen.io/Timothy-James-Aveni/pen/RwdxZQb"
+                target="_blank"
+                >https://codepen.io/Timothy-James-Aveni/pen/RwdxZQb</a
+              >
+            </small>
+            <small>
+              <a
+                href="https://codepen.io/Timothy-James-Aveni/pen/XWGVaZq"
+                target="_blank"
+                >https://codepen.io/Timothy-James-Aveni/pen/XWGVaZq</a
+              >
+            </small>
+          </ul>
+        </section>
+        <section>
+            <h2>What did we learn?</h2>
+            <ul>
+                <li>Syntax? Semicolons? Func as var?? Const vs let?</li>
+                <li>Manipulating the document / elem attributes</li>
+                <li>Event listeners</li>
+                <li>Similar to any languages you know?</li>
+            </ul>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/XWGVaZq">https://codepen.io/Timothy-James-Aveni/pen/XWGVaZq</a></small>
+            <div class="columns">
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <button id="btn">
+                            click me!
+                        </button>
+
+                        <p id="stylish-paragraph">
+                            look at me go!
+                        </p>
+                    </script>
+                </code></pre>
+                <p>Look its an anonymous function!</p>
+            </div>
+            <pre><code data-line-numbers="*|3,4,5,6" class="hljs" data-trim>
+                const btn = document.getElementById('btn');
+
+                btn.onclick = () => {
+                    const para = document.getElementById('stylish-paragraph');
+                    para.style.fontSize = '24pt';
+                };
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/xxBpLWQ">https://codepen.io/Timothy-James-Aveni/pen/xxBpLWQ</a></small>
+            <div class="columns">
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <button id="btn">
+                            click me!
+                        </button>
+
+                        <p id="stylish-paragraph">
+                            look at me go!
+                        </p>
+                    </script>
+                </code></pre>
+                <p>Why doesn't the paragraph become bigger and bluer?</p>
+            </div>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const btn = document.getElementById('btn');
+                const para = document.getElementById('stylish-paragraph');
+
+                btn.onclick = () => {
+                  para.style.fontSize = '24pt';
+                };
+
+                btn.onclick = () => {
+                  para.style.color = 'blue';
+                };
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/dyrJzmE">https://codepen.io/Timothy-James-Aveni/pen/dyrJzmE</a></small>
+            <div class="columns">
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <button id="btn">
+                            click me!
+                        </button>
+
+                        <p id="stylish-paragraph">
+                            look at me go!
+                        </p>
+                    </script>
+                </code></pre>
+                <p>Much better.</p>
+            </div>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const btn = document.getElementById('btn');
+                const para = document.getElementById('stylish-paragraph');
+
+                btn.addEventListener('click', () => {
+                  para.style.fontSize = '24pt';
+                });
+
+                btn.addEventListener('click', () => {
+                  para.style.color = 'blue';
+                });
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/oNVEvVL">https://codepen.io/Timothy-James-Aveni/pen/oNVEvVL</a></small>
+            <div class="columns">
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <style>
+                          .bold {
+                            font-weight: bold;
+                          }
+                        </style>
+
+                        <button id="btn">
+                          click me!
+                        </button>
+
+                        <p id="stylish-paragraph">
+                          look at me go!
+                        </p>
+                    </script>
+                </code></pre>
+                <p><strong>classList</strong> lets us control the classes on the element. add(), remove(), toggle(), and more!</p>
+            </div>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const btn = document.getElementById('btn');
+                const para = document.getElementById('stylish-paragraph');
+
+                btn.addEventListener('click', () => {
+                  para.classList.toggle('bold');
+                });
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/RwdQbOg">https://codepen.io/Timothy-James-Aveni/pen/RwdQbOg</a></small>
+            <div class="columns">
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <div class="red">
+                          a wonderful div?
+                        </div>
+                        <p class="red">
+                          look at me go!
+                        </p>
+                        <p>
+                          another paragraph!
+                        </p>
+                    </script>
+                </code></pre>
+                <p><strong>querySelectorAll</strong> returns a bunch of elements, using any CSS selector</p>
+            </div>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const redElements = document.querySelectorAll('.red');
+
+                for (const element of redElements) {
+                    element.style.color = 'red';
+                }
+
+                const paragraphs = document.querySelectorAll('p');
+
+                for (const element of paragraphs) {
+                    element.textContent = 'I am a paragraph!';
+                }
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/dyrdbxN">https://codepen.io/Timothy-James-Aveni/pen/dyrdbxN</a></small>
+            <div class="columns">
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <input type="number" id="operand">
+                        <button>double me!</button>
+                    </script>
+                </code></pre>
+                <small><ul>
+                  <li>input elements let us create interactive UI components for the user.</li>
+                  <li>we can get and set the value of an input element with JavaScript.</li>
+                </ul></small>
+            </div>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const btn = document.querySelector('button'); // what’s different?
+                const inp = document.querySelector('#operand'); // this works too!
+
+                btn.addEventListener('click', () => {
+                  const num = parseInt(inp.value, 10); // .value can be read
+                  inp.value = num + num; // and it can be written!
+                });
+            </code></pre>
+        </section>
+        <section>
+          <h2>Activity: Task Manager</h2>
+          <a href="https://codepen.io/Timothy-James-Aveni/pen/gOEvOOo">https://codepen.io/Timothy-James-Aveni/pen/gOEvOOo</a>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/VwRQWOx">https://codepen.io/Timothy-James-Aveni/pen/VwRQWOx</a></small>
+            <p>What is this code doing?</p>
+            <pre><code data-line-numbers class="hljs" data-trim data-noescape>
+                const checkNumber = (i) => {
+                  return i >= 0;
+                };
+
+                console.log(checkNumber(5));
+                console.log(checkNumber(-2));
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/VwRQWOx">https://codepen.io/Timothy-James-Aveni/pen/VwRQWOx</a></small>
+            <p><strong>this part</strong> is an expression that represents the function! --> put it into a variable to use later</p>
+            <pre><code data-line-numbers="1,2,3" class="hljs" data-trim>
+                (i) => {
+                    return i >= 0;
+                };
+
+                console.log(checkNumber(5));
+                console.log(checkNumber(-2));
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/NWJygVQ">https://codepen.io/Timothy-James-Aveni/pen/NWJygVQ</a></small>
+                
+            <p><strong>.filter()</strong> can be used on arrays in JavaScript:</p>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const list = [ 1, -4, 20, -7, 'hello', 0 ];
+
+                console.log(list.filter(
+                    (i) => {
+                        return i >= 0;
+                    }
+                ))
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/NWJygVQ">https://codepen.io/Timothy-James-Aveni/pen/NWJygVQ</a></small>
+                
+            <p><strong>notice the function! </strong>we tell filter() what function to run on every number.</p>
+            <pre><code data-line-numbers="4,5,6" class="hljs" data-trim>
+                const list = [ 1, -4, 20, -7, 'hello', 0 ];
+
+                console.log(list.filter(
+                    (i) => {
+                        return i >= 0;
+                    }
+                ))
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/NWJygVQ">https://codepen.io/Timothy-James-Aveni/pen/NWJygVQ</a></small>
+                
+            <p>you might see this shorthand for one-line functions. the one-line expression is returned.</p>
+            <pre><code data-line-numbers="4" class="hljs" data-trim>
+                const list = [ 1, -4, 20, -7, 'hello', 0 ];
+
+                console.log(list.filter(
+                    i => i >= 0
+                ));
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/RwdQgXY">https://codepen.io/Timothy-James-Aveni/pen/RwdQgXY</a></small>
+                
+            <p><strong>.map()</strong> is similar, returning a new array by changing the elements:</p>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const list = [ 'one', 'Two', 'THREE', 'four?' ];
+
+                console.log(list.map(s => s.toUpperCase()));
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/NWJyvWK">https://codepen.io/Timothy-James-Aveni/pen/NWJyvWK</a></small>
+                
+            <p>sometimes, functions won’t get run right away:</p>
+            <p>setTimeout() is built into JavaScript and takes two arguments & by giving it a function, we tell it what to run later.</p>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                setTimeout(() => {
+                  console.log("hello");
+                }, 1000);
+                console.log("goodbye"); // prints this FIRST
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/GReQvJz">https://codepen.io/Timothy-James-Aveni/pen/GReQvJz</a></small>
+                
+            <p>some APIs return a <strong>Promise</strong>, which can be given callbacks in a <strong>.then()</strong> call::</p>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                const poem = fetch(
+                  'https://poetrydb.org/...'
+                );
+
+                console.log(poem); // it's not ready yet!
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/GReQvJz">https://codepen.io/Timothy-James-Aveni/pen/GReQvJz</a></small>
+                
+            <p>some APIs return a <strong>Promise</strong>, which can be given callbacks in a <strong>.then()</strong> call::</p>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                fetch(
+                  'https://poetrydb.org/...'
+                ).then((data) => {
+                  return data.json(); // this *also* returns a Promise
+                }).then((json) => { // Promises can be chained!
+                  console.log(json); // now we actually have the data
+                });
+            </code></pre>
+        </section>
+        <section>
+            <small><a href="https://codepen.io/Timothy-James-Aveni/pen/eYXVEvW">https://codepen.io/Timothy-James-Aveni/pen/eYXVEvW</a></small>
+                
+            <p>you can use the <strong>await</strong> keyword to suspend execution until a promise finishes.</p>
+            <pre><code data-line-numbers class="hljs" data-trim>
+                // Mark func *async* to use the `await` keyword.
+                const url = '...';
+                const getPoem = async () => {
+                  const data = await fetch(url);
+                  const json = await data.json();
+
+                  console.log(json);
+
+                  return json; // returns a Promise because it's async!
+                };
+                const poem = getPoem();
+                console.log(poem); // not ready yet!
+            </code></pre>
+        </section>
+        <section>
+          <h2>Back to activity!</h2>
+          <a href="https://codepen.io/Timothy-James-Aveni/pen/gOEvOOo">https://codepen.io/Timothy-James-Aveni/pen/gOEvOOo</a>
+        </section>
+        <section>
+          <h2>Thank you!</h2>
+          <br />
+          <p>Other resources:</p>
+          <ul>
+            <li>
+              Tim!
+              <a href="https://160.tja.io/sp2024/week2/" target="_blank"
+                >https://160.tja.io/sp2024/week2/</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../../../dist/reveal.js"></script>
+    <script src="../../../plugin/notes/notes.js"></script>
+    <script src="../../../plugin/markdown/markdown.js"></script>
+    <script src="../../../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
