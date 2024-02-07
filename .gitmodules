@@ -1,0 +1,3 @@
+[submodule "OP-Frontend-WS"]
+	path = OP-Frontend-WS
+	url = git@github.com:Cbannon35/OP-Frontend-WS.git
