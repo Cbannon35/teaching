@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="author" content="Christopher Bannon" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>CS 160 SP24 Week 3: Bootstrap and Flexbox</title>
+
+    <link rel="stylesheet" href="../../../dist/reset.css" />
+    <link rel="stylesheet" href="../../../dist/reveal.css" />
+    <link rel="stylesheet" href="../../../dist/theme/black.css" />
+    <link rel="stylesheet" href="../../../plugin/highlight/monokai.css" />
+    <style>
+      .reveal .footer {
+        position: absolute;
+        bottom: 0.5em;
+        left: 0.5em;
+        font-size: 0.5em;
+        z-index: 1000;
+      }
+      .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="footer">
+        <small
+          >Access Slides:
+          <a href="https://cbannon35.github.io/teaching/"
+            >https://cbannon35.github.io/teaching/</a
+          ></small
+        >
+      </div>
+      <div class="slides">
+        <section>
+          <h2>Welcome to Discussion #3!</h2>
+          <small>
+            CS 160 · User Interface Design and Development · Spring 2024
+          </small>
+          <br />
+          <br />
+          <br />
+          <p>
+            <strong>Do Now: </strong>Open up our initial activity:
+            <a href="https://codepen.io/Christopher-Bannon/pen/mdozbmx" target="_blank">here</a>
+          </p>
+          <br />
+          <p style="font-size: 16px">
+            <a href="../../../index.html">Back to index</a>
+          </p>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>Bootstrap</li>
+            <li>Responsive Design</li>
+            <li>Media Queries</li>
+            <li>Flexbox</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Bootstrap</h2>
+          <br />
+          <p>What is Bootstrap?</p>
+          <p><strong>CSS framework</strong> --> gives us some baseline styles so we don’t have to start from scratch</p>
+          <br />
+          <p>In our activity today, why did the button look different even though we didn't write any CSS ourselves?</p>
+        </section>
+        <section>
+          <p>Compare</p>
+          <div class="columns">
+            <div><p>Default</p><img src="../../assets/sp24week3/base_html_styles.png" style="width: 500px;"/></div>
+            <div><p>Bootstrap</p><img src="../../assets/sp24week3/bootstrap_styles.png" style="width: 500px;"/></div>
+          </div>
+        </section>
+        <section>
+          <p>"I can do it myself!"</p>
+          <p>Well, you definitely could...</p>
+          <img src="../../assets/sp24week3/bootstrap_gen.png"/>
+        </section>
+        <section>
+          <h2>Why should I use Bootstrap?</h2>
+          <ol>
+            <li>Consistency</li>
+            <li>Out of the box components</li>
+            <li><s>Responsive Design</s></li>
+          </ol>
+        </section>
+        <section>
+            <h2>Consistency</h2>
+            <p>Bootstrap provides a consistent look and feel</p>
+            <p>Easy to use across large teams and systems</p>
+        </section>
+        <section>
+            <h2>Out of the box components</h2>
+            <p>Bootstrap provides a number of components that you can use to build your site</p>
+            <p>Examples: buttons, forms, navbars, etc.</p>
+            <p>This will save you time when developing and take the focus away from building harder UI components</p>
+            <p>Let's take a look at some <a href="https://getbootstrap.com/">https://getbootstrap.com/</a></p>
+        </section>
+        <section>
+            <h2>Activity Time!</h2>
+            <a href="https://codepen.io/Timothy-James-Aveni/pen/dyrjRML"><s>Bootstrap classes intro</s></a>
+            <p>If you're curious about bootstrap, please come back to this activity on your own time</p>
+        </section>
+        <section>
+            <h2><s>Responsive Design</s></h2>
+            <p>It is worth mentioning that Bootstrap was built when putting &lt;divs&gt; where you wanted was harder</p>
+            <br />
+            <p>It uses a 12-column grid system to help you build responsive layouts</p>
+            <br />
+            <p>Today, we will talk about flexbox as it is used more frequently</p>
+        </section>
+        <section>
+            <h2>What is Responsive Design?</h2>
+            <p>In the context of this class, we mean designing an application for all kinds of devices!</p>
+            <p>Certain style practices have adopted a "mobile first" approach to designing websites because of home much traffic comes from phones!</p>
+        </section>
+        <section>
+            <h2>Do Now</h2>
+            <p>Go to your favorite website and see how they handle when you resize the browser!</p>
+            <p>Bonus: Try printing the page open dev tools to see how the page structure/styles change</p>
+        </section>
+        <section>
+            <h2>Breakpoints</h2>
+            <p>Hopefully, you saw how when the page hit a certain width, something happened!</p>
+            <p>Maybe...</p>
+            <ul>
+                <li>The navigation changed</li>
+                <li>Images got smaller</li>
+                <li>Columns stacked</li>
+                <li>etc..</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Media Queries</h2>
+            <p>Media queries are a way to apply styles based on certain conditions (Like an if statement!)</p>
+            <p>They're powerful, and if you're curious, take a look at the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank">docs</a></p>
+            <p>We're going to focus on querying the screen width</p>
+        </section>
+        <section>
+            <h2>Media Query Activity</h2>
+            <p>Example: <a href="https://codepen.io/Timothy-James-Aveni/pen/vYPaZRO" target="_blank">thanks Tim</a></p>
+            <p>Activity: <a href="https://codepen.io/Timothy-James-Aveni/pen/NWJBgzv" target="_blank">thanks again Tim!</a></p>
+        </section>
+        <section>
+            <h2>Flexbox</h2>
+            <p>Flexbox is a layout model that allows you to align and distribute space among items in a container</p>
+            <p>You can create rows and columns and create naturally responsive alignment of items</p>
+        </section>
+        <section>
+            <h2>Creating a flexbox</h2>
+            <p>We must think about <strong>parent</strong> and <strong>child</strong>elements</p>
+            <section data-markdown>
+                <textarea data-template>
+                    ```css 
+                    .container {
+                        display: flex;
+                    }
+                    .container div {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    ```
+                     ```html
+                    <div class="container">
+                        <div>Child 1</div>
+                        <div>Child 2</div>
+                        <div>Child 3</div>
+                    </div>
+                    ```
+                </textarea>
+            </section>
+        </section>
+        <section>
+            <h2>Flexbox Properties</h2>
+            <p>Certain properties apply to the children vs the parent container</p>
+            <p>Let's quickly look at how to justify/align content <a href="https://codepen.io/Christopher-Bannon/pen/GReYKBY" target="_blank">here</a></p>
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Cheat Sheet</a>
+        </section>
+        <section>
+            <h2>Flexbox Activity</h2>
+            <p>In your groups, try to get through all 24 levels! Fastest group gets a prize...</p>
+            <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a>
+        </section>
+        <section>
+          <h2>Thank you!</h2>
+          <br />
+          <p>Other resources:</p>
+          <ul>
+            <li>
+              <a href="https://160.tja.io/sp2024/week3/" target="_blank"
+                >https://160.tja.io/sp2024/week3/</a
+              >
+            </li>
+            <li>
+                <a href="https://getbootstrap.com/" target="_blank"
+                    >https://getbootstrap.com/</a
+                >
+            </li>
+            <li>
+                <a href="https://flexboxfroggy.com/" target="_blank"
+                    >https://flexboxfroggy.com/</a
+                >
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank"
+                    >https://www.w3schools.com/css/css3_mediaqueries.asp</a
+                >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../../../dist/reveal.js"></script>
+    <script src="../../../plugin/notes/notes.js"></script>
+    <script src="../../../plugin/markdown/markdown.js"></script>
+    <script src="../../../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
