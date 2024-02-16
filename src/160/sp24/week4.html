@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="author" content="Christopher Bannon" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>CS 160 SP24 Week 3: Async Javascript</title>
+
+    <link rel="stylesheet" href="../../../dist/reset.css" />
+    <link rel="stylesheet" href="../../../dist/reveal.css" />
+    <link rel="stylesheet" href="../../../dist/theme/black.css" />
+    <link rel="stylesheet" href="../../../plugin/highlight/monokai.css" />
+    <style>
+      .reveal .footer {
+        position: absolute;
+        bottom: 0.5em;
+        left: 0.5em;
+        font-size: 0.5em;
+        z-index: 1000;
+      }
+      .columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .bigCode {
+        font-size: 10px;
+      }
+      
+    </style>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="footer">
+        <small
+          >Access Slides:
+          <a href="https://cbannon35.github.io/teaching/"
+            >https://cbannon35.github.io/teaching/</a
+          ></small
+        >
+      </div>
+      <div class="slides">
+        <section>
+          <h2>Welcome to Discussion #4!</h2>
+          <small>
+            CS 160 · User Interface Design and Development · Spring 2024
+          </small>
+          <br />
+          <br />
+          <br />
+          <p>
+            Last weeks solution:
+            <a href="https://codepen.io/Christopher-Bannon/pen/xxBMOdR" target="_blank">here</a>
+          </p>
+          <p>
+            This week's activity:
+            <a href="https://codepen.io/Christopher-Bannon/pen/gOEqMed" target="_blank">more responsive design</a>
+          </p>
+          <br />
+          <p style="font-size: 16px">
+            <a href="../../../index.html">Back to index</a>
+          </p>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li>All about async Javascript!</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>But first... brainstorming</h2>
+          <p>Your team's brainstorm will be graded soon!</p>
+          <br />
+          <p><strong>General feedback:</strong>Make sure your <strong>target user group is narrow but accessible,</strong> that you can actually go find them and talk to them. Make sure your project is in line with what those users likely need (but you will investigate this!)</p>
+          <br />
+          <p>It is not too late to pivot!</p>
+        </section>
+        <section>
+          <h2>Sync Javascript</h2>
+          <p>Run line by line</p>
+          <section data-markdown>
+                <textarea data-template class="bigCode">
+                    ```Javascript [1-13|4,13]
+                    const boxDiv = document.getElementById('box');
+
+                    button.addEventListener('click', () => {
+                        console.log('bonjour !');
+                    });
+
+                    boxDiv.style.backgroundColor = 'red';
+                    console.log(boxDiv.style.backgroundColor);
+
+                    boxDiv.style.backgroundColor = 'blue';
+                    console.log(boxDiv.style.backgroundColor);
+
+                    console.log('hello!');
+                    ```
+                </textarea>
+            </section>  
+        </section>
+        <section>
+            <h2>Scheduling</h2>
+            <p><pre>addEventListener</pre> - schedules code to be executed later, typically on an action. It doesn't get run right away!</p>
+            <p>This is called a <strong>callback function</strong></p>
+        </section>
+        <section>
+            <h2>Call me back</h2>
+            <ul>
+                <li>We make a call to (for example) an api asking for data</li>
+                <li>The api doesn't have it immediately ready, but <strong>promises</strong> to send it to us</li>
+                <li>We have to define behavior for when the api 'calls us back'</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Example callback handling</h2>
+            <p>decoding .WAV file data with the Web Audio API</p>
+            <section data-markdown>
+                <textarea data-template>
+                    ```Javascript
+                    const wavData = /* ... */;
+                    const ctx = new AudioContext();
+
+                    ctx.decodeAudioData(wavData, (audioBuffer) => {
+                        console.log(audioBuffer.duration);
+                    });
+
+                    console.log("not finished yet!");
+                    ```
+                </textarea>
+            </section>
+        </section>
+        <section>
+            <h2>Simple Example</h2>
+            <p><pre>setTimeout</pre></p>
+            <p>After 1000 milliseconds, the code we schedule runs</p>
+            <section data-markdown>
+                <textarea data-template>
+                    ```Javascript
+                    setTimeout(() => {
+                        console.log("hi again!");
+                    }, 1000);
+
+                    console.log("hello!");
+                    ```
+                </textarea>
+            </section>
+        </section>
+        <section>
+            <h2>Activity time</h2>
+            <p>Call me back in 10 minutes after you've poked around some callback examples!</p>
+            <a href="https://codepen.io/Timothy-James-Aveni/pen/poYqjVg" target="_blank">Tim's codepen</a>
+        </section>
+
+        <section >
+            <h2>Example solution</h2>
+            <section data-markdown>
+                <textarea data-template class="bigCode">
+                    ```Javascript
+                    setTimeout(() => {
+                        const randomNumber = Math.random() * 3000 + 500;
+                        console.log("Welcome! Your random number is " + randomNumber);
+
+                        setTimeout(() => {
+                            console.log("Your random number is still " + randomNumber);
+
+                            const imageElement = document.createElement("img");
+                            document.body.appendChild(imageElement);
+                            imageElement.src =
+                            "https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg";
+
+                            imageElement.addEventListener("load", () => {
+                                console.log("look at this adorable cat!!");
+
+                                setTimeout(() => {
+                                    console.log("Goodbye!");
+                                }, randomNumber);
+                            });
+                        }, 1000);
+                    }, 500);
+                    ```
+                </textarea>
+            </section>
+        </section>
+        <section>
+            <h2>Callback Hell</h2>
+            <p>When async code depends on prior asynchronous code... it gets messy</p>
+            <p>The last line was about the very first callback delay</p>
+            <p>Super nested</p>
+        </section>
+
+        <section>
+            <h2>So what .then() ?</h2>
+            <p><strong>Promise</strong> chaining</p>
+            <p>When a promise <strong>resolves</strong>we can call .then() on it to run our callback</p>
+            <section data-markdown>
+                <textarea data-template>
+                    ```Javascript
+                    const delayPromise = sleep(500);
+
+                    delayPromise.then(() => {
+                        console.log("a half second later!");
+                    });
+                    ```
+                </textarea>
+            </section>
+        </section>
+
+        <section>
+            <h2>Does this help?</h2>
+            <section data-markdown>
+                <textarea data-template>
+                    ```Javascript [1-14|3|6|9|12]
+                    sleep(
+                        500
+                    ).then(() => {
+                        console.log('500ms');
+                    return sleep(500);
+                    }).then(() => {
+                        console.log('1000ms');
+                        return sleep(123);
+                    }).then(() => {
+                        console.log('1123ms');
+                        return sleep(10000);
+                    }).then(() => {
+                        console.log('11123ms');
+                    });
+                    ```
+                </textarea>
+            </section>
+        </section>
+
+        <section>
+            <h2>What about data?</h2>
+            <section data-markdown>
+                <textarea data-template>
+                    ```Javascript [1-5|2-4]
+                    navigator.clipboard.readText().then(
+                        (clipboardText) => {
+                            console.log("Your clipboard: " + clipboardText);
+                        }
+                    );
+                    ```
+                </textarea>
+            </section>
+        </section>
+
+        <section>
+            <h2>But (a)wait! There's more!</h2>
+            <div class="columns">
+                <pre class="bigCode"><code class="hljs" data-trim>
+                function countDown() {
+                    console.log("three...");
+                    return sleep(1000).then(() => {
+                        console.log("two...");
+                        return sleep(1000);
+                    }).then(() => {
+                        console.log("one...");
+                        return sleep(1000);
+                    });
+                    }
+
+                countDown().then(() => {
+                    console.log("Happy New Year!");
+                });
+                </code></pre>
+                <pre class="bigCode"><code data-line-numbers class="hljs" data-trim>
+                    async function countDown() {
+                        console.log("three...");
+                        await sleep(1000);
+                        console.log("two...");
+                        await sleep(1000);
+                        console.log("one...");
+                        await sleep(1000);
+                    }
+
+                    countDown().then(() => {
+                        console.log("Happy New Year!");
+                    });
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Try and catch this!</h2>
+            <p>Sometimes the result of a promise is an error :(</p>
+            <p>They can occur due to various reasons like invalid input, network issues, or unexpected behavior.</p>
+            <section data-markdown>
+                <textarea data-template>
+                    ```Javascript
+                    try {
+                        // Code that might throw an error
+                    } catch (error) {
+                        // Handle the error
+                    }
+                    ```
+                </textarea>
+            </section>
+        </section>
+        <section>
+            <h2>Try and catch this!</h2>
+            <p>We don't want to crash our program if there's an error.</p>
+            <section data-markdown>
+                <textarea data-template>
+                    ```Javascript
+                    function divide(a, b) {
+                        try {
+                            if (b === 0) {
+                                throw new Error('Division by zero');
+                            }
+                            return a / b;
+                        } catch (error) {
+                            console.error('Error:', error.message);
+                            return 'Cannot divide by zero';
+                        }
+                    }
+                    console.log(divide(10, 2)); // Output: 5
+                    console.log(divide(10, 0)); // Output: ??
+                    ```
+                </textarea>
+            </section>
+        </section>
+        <section>
+            <h2>How do we handle this?</h2>
+            <p>Multiple lines potentially cause an error...</p>
+            <section data-markdown>
+                <textarea data-template>
+                    ```javascript [1-9|3-4]
+                    async function fetchData() {
+                        try {
+                            const data1 = await fetch(url1);
+                            const json1 = await data1.json();
+                            // Process data...
+                        } catch (error) {
+                            console.error('Error:', error.message);
+                        }
+                    }
+                    ```
+                </textarea>
+            </section>  
+        </section>
+
+
+        <section>
+            <h2>Async Activity</h2>
+            <a href="https://codepen.io/Timothy-James-Aveni/pen/zYbyrxp" target="_blank">thanks Tim</a>
+        </section>
+        <section>
+          <h2>Thank you!</h2>
+          <br />
+          <p>Other resources:</p>
+          <ul>
+            <li>
+              <a href="https://160.tja.io/sp2024/week4/" target="_blank"
+                >https://160.tja.io/sp2024/week4/</a
+              >
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank">Mozilla - async</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../../../dist/reveal.js"></script>
+    <script src="../../../plugin/notes/notes.js"></script>
+    <script src="../../../plugin/markdown/markdown.js"></script>
+    <script src="../../../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
