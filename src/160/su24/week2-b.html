@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="author" content="Christopher Bannon" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <title>CS 160 SU24 Week 2b: Intro to JavaScript</title>
+
+    <link rel="stylesheet" href="../../../dist/reset.css" />
+    <link rel="stylesheet" href="../../../dist/reveal.css" />
+    <link rel="stylesheet" href="../../../dist/theme/black.css" />
+    <link rel="stylesheet" href="../../../plugin/highlight/monokai.css" />
+    <style>
+        .reveal .footer {
+            position: absolute;
+            bottom: 0.5em;
+            left: 0.5em;
+            font-size: 0.5em;
+            z-index: 1000;
+        }
+
+        .columns {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    </style>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="footer">
+            <small>Access Slides:
+                <a href="https://cbannon35.github.io/teaching/">https://cbannon35.github.io/teaching/</a></small>
+        </div>
+        <div class="slides">
+            <section>
+                <h2>Welcome to Discussion #2b!</h2>
+                <small>
+                    CS 160 · User Interface Design and Development · Summer 2024
+                </small>
+                <img src="/src/assets/qr.png" alt="QR Code" height="300px" />
+                <p><strong>Do Now: </strong>Get into your teams!</p>
+                <p style="font-size: 16px">
+                    <a href="../../../index.html">Back to index</a>
+                </p>
+            </section>
+            <section>
+                <h2>Quick Refresher</h2>
+                <p>Style elements with classes and ids</p>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <style>
+                            .green { 
+                                color: rgb(0, 255, 0);
+                            }
+                            #red {
+                                color: rgb(255, 0, 0);
+                            }
+                        </style>
+
+                        <p class="green">I am green!</p>
+
+                        <p id="red">I am red!</p>
+                    </script>
+                </code></pre>
+            </section>
+            <section>
+                <h2>Agenda</h2>
+                <p>Learn DOM manipulation with Javascript</p>
+                <br />
+                <p>Our activity: <a href="https://codepen.io/Timothy-James-Aveni/pen/gOEvOOo" target="_blank">Task
+                        Tracker</a></p>
+            </section>
+            <section>
+                <h2>How do I include Javascript?</h2>
+
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script>
+                        // JavaScript goes here
+                    </script>
+                    </code></pre>
+
+                <p>Where do I put script tag?</p>
+                <pre><code data-line-numbers class="hljs" data-trim><script type="text/template">
+                    <head>
+                        <!-- In the head? -->
+                    </head>
+                    <body>
+                        <!-- ~All body content~ -->
+                        <!-- or at the end of body? -->
+                    </body>
+                </script></code></pre>
+                <a href="https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup"
+                    target="_blank">Read this!</a>
+            </section>
+            <section>
+                <h2>Locating DOM Elements</h2>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <div id="one"></div>
+                    <div class="two"></div>
+                    <div class="two"></div>
+                    <script>
+                        document.getElementById('one');
+                        // --> returns the first div
+                        document.getElementsByClassName('two');
+                        // --> returns an array of the two divs
+                    </script>
+                    </code></pre>
+            </section>
+            <section>
+                <h2>Theres More!</h2>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                                <div id="one"></div>
+                                <div class="two"></div>
+                                <div class="two"></div>
+                                <script>
+                                    document.querySelector('.two');
+                                    // --> returns first element with css selector
+                                    document.querySelectorAll('.two');
+                                    // --> returns an array of the two divs
+                                    document.getElementsByTagName('div');
+                                    // --> returns an array of all divs
+                                </script>
+                                </code></pre>
+            </section>
+            <section>
+                <h2>We can manipulate HTML!</h2>
+                <pre><code data-line-numbers class="hljs" data-trim><script type="text/template">
+                    <p id="p">look at me go!</p>
+                </script></code></pre>
+
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    const para = document.getElementById('stylish-paragraph');
+                    para.innerHTML = 'I say something else';
+                    para.textContent = "I am a paragraph!"
+                </code></pre>
+
+                <p>Examples:</p>
+                <ul>
+                    <li>
+                        <a href="https://codepen.io/Timothy-James-Aveni/pen/ExMovgE?editors=1010"
+                            target="_blank">innerHTML</a>
+                    </li>
+                    <li>
+                        <a href="https://codepen.io/Timothy-James-Aveni/pen/XWGVaNV" target="_blank">textContent</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>CSS & Event Handlers</h2>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <style>
+                            .bold {
+                                font-weight: bold;
+                            }
+                        </style>
+                    
+                        <button id="btn">click me!</button>
+                        
+                        <p id="p">look at me go!</p>
+                </script></code></pre>
+                <p>Examples:</p>
+                <ul>
+                    <li>
+                        <a href="https://codepen.io/Timothy-James-Aveni/pen/RwdxZQb" target="_blank">onClick</a>
+                    </li>
+                    <li>
+                        <a href="https://codepen.io/Timothy-James-Aveni/pen/XWGVaZq" target="_blank">onClick
+                            anonymous fn</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Toggle Classes</h2>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                            <script type="text/template">
+                                <style>
+                                    .bold {
+                                        font-weight: bold;
+                                    }
+                                </style>
+                            
+                                <button id="btn">click me!</button>
+                                
+                                <p id="p">look at me go!</p>
+                        </script></code></pre>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    const btn = document.getElementById('btn');
+                    const para = document.getElementById('p');
+                    
+                    btn.addEventListener('click', () => {
+                        para.classList.toggle('bold');
+                    });
+                </code></pre>
+                <small><a href="https://codepen.io/Timothy-James-Aveni/pen/oNVEvVL">Example</a></small>
+            </section>
+            <section>
+                <h2>Functionality and Console</h2>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    function add(a, b) {
+                        return a + b;
+                    }
+                    
+                    console.log(add(10, 5));
+
+                    const subtract = (a, b) => {
+                        return a - b;
+                    };
+                    
+                    console.log(subtract(9, 2));
+                </code></pre>
+
+                <p>Lets look!</p>
+                <ul>
+                    <li>
+                        <a href="https://codepen.io/Timothy-James-Aveni/pen/yLwpooo" target="_blank">Console</a>
+                    </li>
+                    <li>
+                        <a href="https://codepen.io/Timothy-James-Aveni/pen/JjzpjPX" target="_blank">Function as
+                            Variable</a>
+                    </li>
+                </ul>
+            </section>
+
+
+            <section>
+                <p>Input elements let us create interactive UI components for the user and we can get and set the value
+                    with JavaScript</p>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                    <script type="text/template">
+                        <input type="number" id="operand">
+                        <button>double me!</button>
+                    </script>
+                </code></pre>
+                <pre><code data-line-numbers class="hljs" data-trim>
+                const btn = document.querySelector('button');
+                const inp = document.querySelector('#operand');
+
+                btn.addEventListener('click', () => {
+                  const num = parseInt(inp.value, 10); // .value
+                  inp.value = num + num; // and it can be written!
+                });
+            </code></pre>
+                <small><a href="https://codepen.io/Timothy-James-Aveni/pen/dyrdbxN">Example</a></small>
+                <div class="columns">
+            </section>
+            <section>
+                <h2>Activity: Shopping List</h2>
+                <a
+                    href="https://codepen.io/Timothy-James-Aveni/pen/gOEvOOo">https://codepen.io/Timothy-James-Aveni/pen/gOEvOOo</a>
+            </section>
+            <section>
+                <h2>Thank you!</h2>
+                <br />
+                <p>Other resources:</p>
+                <ul>
+                    <li>
+                        Tim!
+                        <a href="https://160.tja.io/sp2024/week2/" target="_blank">https://160.tja.io/sp2024/week2/</a>
+                    </li>
+                    <li>
+                        <a href="https://www.learn-js.org/" target="_blank">Learn JavaScript</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script src="../../../dist/reveal.js"></script>
+    <script src="../../../plugin/notes/notes.js"></script>
+    <script src="../../../plugin/markdown/markdown.js"></script>
+    <script src="../../../plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        });
+    </script>
+</body>
+
+</html>
